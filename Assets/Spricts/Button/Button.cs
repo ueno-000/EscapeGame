@@ -5,6 +5,8 @@ using UnityEngine;
 public class Button: MonoBehaviour
 {
     public GameObject button;
+    int counter = 0;
+    const int counterMax = 20; //最大値
 
     void Start()
     {
@@ -35,5 +37,15 @@ public class Button: MonoBehaviour
             GetComponent<Renderer>().material.color = Color.yellow;
             button.SetActive(false);
         }
+    }
+
+    // ボタンが押された場合、今回呼び出される関数
+    public void OnClick()
+    {
+        button.SetActive(true);
+    }
+    public void DeleteButton()
+    { 
+        button.SetActive(false);
     }
 }
