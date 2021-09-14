@@ -9,7 +9,7 @@ public class Window : ItemBase
         if (!m_isChecked)
         {
             Debug.Log("窓を調べてみた");
-            //TextController.Instance.DisplayText("ピースを見つけた");
+            //TextController.Instance.DisplayText("なにか見つけた");
             m_isChecked = true;
             m_selectButton.SetActive(false);
             //if (m_isMustItem)
