@@ -17,8 +17,8 @@ public  class ItemBase : MonoBehaviour
     [SerializeField] protected bool m_isChecked = false;
     /// <summary>プレイヤーの音声</summary>
     [SerializeField] protected AudioClip m_playerVoice = null;
-    /// <summary>バディの音声</summary>
-    [SerializeField] protected AudioClip m_badyVoice = null;
+    ///// <summary>バディの音声</summary>
+    //[SerializeField] protected AudioClip m_badyVoice = null;
 
     public bool IsMustItem => m_isMustItem;
 
@@ -41,7 +41,7 @@ public  class ItemBase : MonoBehaviour
         {
             m_backGround.SetActive(true);     // 背後の絵を非表示にする
         }
-        SoundManager.Instance.MouseEnterSound();
+        //SoundManager.Instance.MouseEnterSound();
     }
 
     /// <summary>マスカーソルが離れた時に呼ばれるメソッド</summary>
@@ -61,24 +61,24 @@ public  class ItemBase : MonoBehaviour
         {
             m_selectButton.SetActive(true);
         }
-        SoundManager.Instance.ObjectClicked();
+        //SoundManager.Instance.ObjectClicked();
     }
 
     /// <summary>プレイヤーが捜索した場合のメソッド</summary>
-    public virtual void OnPlayerSearch()
+    public virtual void OnPlayerSearch1()
     {
-        Debug.Log("Playerの捜索。しかし何も起こらなかった");
+        Debug.Log("何も起こらなかった");
         //TextController.Instance.DisplayText("しかし何も起こらなかった");
         m_selectButton.SetActive(false);
     }
 
     /// <summary>バディが捜索した場合のメソッド</summary>
-    public virtual void OnBadySearch()
+    public virtual void OnPlayerSearch2()
     {
-        Debug.Log("バディの捜索。しかし何も起こらなかった");
+        Debug.Log("何も起こらなかった");
         //GameManager.Instance.m_girl.SetActive(true);
         //GameManager.Instance.Sets();
-        SoundManager.Instance.OnPlayVoice(m_badyVoice);
+        //SoundManager.Instance.OnPlayVoice(m_badyVoice);
        // TextController.Instance.DisplayText("しかし何も起こらなかった");
         m_selectButton.SetActive(false);
     }
