@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public  class ItemBase : MonoBehaviour
+public class ItemBase : MonoBehaviour
 {
     /// <summary>マウスカーソルが重なった際に表示するSprite</summary>
     [SerializeField] protected GameObject m_backGround = null;
     /// <summary>マウスカーソルが重なった際に表示するSprite</summary>
     //[SerializeField] protected GameObject m_girl = null;
-    /// <summary>誰が探索するかを決めるメニュー(Button)</summary>
+    /// <summary>行動を決めるメニュー(Button)</summary>
     [SerializeField] protected GameObject m_selectButton = null;
     /// <summary>ゲームクリアに必要なアイテムかのフラグ</summary>
     [SerializeField] protected bool m_isMustItem = false;
@@ -19,7 +19,8 @@ public  class ItemBase : MonoBehaviour
     [SerializeField] protected AudioClip m_playerVoice = null;
     ///// <summary>バディの音声</summary>
     //[SerializeField] protected AudioClip m_badyVoice = null;
-
+    /// <summary>Item</summary>
+    //[SerializeField] GameManager gamemanager; 
     public bool IsMustItem => m_isMustItem;
 
     private void Start()
@@ -64,23 +65,25 @@ public  class ItemBase : MonoBehaviour
         //SoundManager.Instance.ObjectClicked();
     }
 
-    /// <summary>プレイヤーが捜索した場合のメソッド</summary>
+    /// <summary>捜索1のメソッド</summary>
     public virtual void OnPlayerSearch1()
     {
-        Debug.Log("何も起こらなかった");
-        //TextController.Instance.DisplayText("しかし何も起こらなかった");
+        Debug.Log("調べたが何もなかった");
+        TextController.Instance.DisplayText("調べたが何もなかった");
         m_selectButton.SetActive(false);
+        //gamemanager.ItemCount++;
     }
 
-    /// <summary>バディが捜索した場合のメソッド</summary>
+    /// <summary>捜索2のメソッド</summary>
     public virtual void OnPlayerSearch2()
     {
-        Debug.Log("何も起こらなかった");
+        Debug.Log("調べなかった");
         //GameManager.Instance.m_girl.SetActive(true);
         //GameManager.Instance.Sets();
         //SoundManager.Instance.OnPlayVoice(m_badyVoice);
-       // TextController.Instance.DisplayText("しかし何も起こらなかった");
+         TextController.Instance.DisplayText("調べなかった");
         m_selectButton.SetActive(false);
+        //gamemanager.ItemCount++;
     }
 
 

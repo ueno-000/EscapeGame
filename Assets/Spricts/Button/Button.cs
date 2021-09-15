@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Button: MonoBehaviour
+public class Button : MonoBehaviour
 {
     public GameObject button;
     int counter = 0;
@@ -45,7 +45,7 @@ public class Button: MonoBehaviour
         button.SetActive(true);
     }
     public void DeleteButton()
-    { 
+    {
         button.SetActive(false);
     }
 }

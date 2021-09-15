@@ -6,10 +6,9 @@ using UnityEngine.UI;
 
 public class HpController : MonoBehaviour
 {
+    /// <summary> Playerの体力 </summary>
     [SerializeField] float maxHp = 5f;
     Slider hpSlider;
-
-    // Use this for initialization
     void Start()
     {
         hpSlider = GetComponent<Slider>();
@@ -17,7 +16,7 @@ public class HpController : MonoBehaviour
         hpSlider.maxValue = maxHp;
     }
 
-
+    /// <summary>Hpをスライダーに表示させるメソッド</summary>
     public void UpdateSlider(int hp)
     {
         hpSlider.value = hp;

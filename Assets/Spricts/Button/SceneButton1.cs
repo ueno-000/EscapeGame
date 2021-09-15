@@ -3,16 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneButton1 : MonoBehaviour
 {
+    [SerializeField] GameObject m_GameOverPanel;
 
-    public void Scene1FHouse()
+
+    public void RetryScene()
     {
         Debug.Log("1FHouseにシーン切替");
-        //SceneManager.LoadScene("");
-    }
-    public void Scene1FGameCver()
-    {
-        Debug.Log("GameOverにシーン切替");
-        //SceneManager.LoadScene("game");
+        SceneManager.LoadScene("1F-1");
     }
 
+    public void OnPanel()
+    {
+        m_GameOverPanel.SetActive(true);
+    }
 }
