@@ -6,19 +6,19 @@ public class Box : ItemBase
 {
     /// <summary>Itemの選択回数のカウント</summary>
     [SerializeField] GameManager gamemanager;
+    /// <summary>表示する画像</summary>
+    [SerializeField] protected GameObject m_Image = null;
 
     public override void OnPlayerSearch1()
     {
         if (!m_isChecked)
         {
             Debug.Log("木箱を調べてみた");
-            TextController.Instance.DisplayText("木箱だ\r\n何か入っている");
+            TextController.Instance.DisplayText("木箱だ、携帯食料が入っている。貰っていこう");
             m_isChecked = true;
             m_selectButton.SetActive(false);
-            //if (m_isMustItem)
-            //{
-            //    GameManager.Instance.AddItem();
-            //}
+            m_Image.SetActive(true);
+            StartCoroutine("FadePanel");
             gamemanager.ItemCount++;
         }
     }
@@ -27,14 +27,17 @@ public class Box : ItemBase
         if (!m_isChecked)
         {
             Debug.Log("調べなかった");
-            TextController.Instance.DisplayText("木箱だ\r\nん？何か入っている");
+            TextController.Instance.DisplayText("木箱だ、携帯食料が入っている。貰っていこう");
             m_isChecked = true;
             m_selectButton.SetActive(false);
-            //if (m_isMustItem)
-            //{
-            //    GameManager.Instance.AddItem();
-            //}
+            m_Image.SetActive(true);
+            StartCoroutine("FadePanel");
             gamemanager.ItemCount++;
         }
+    }
+    IEnumerator FadePanel()
+    {
+        yield return new WaitForSeconds(4f);
+        m_Image.SetActive(false);
     }
 }

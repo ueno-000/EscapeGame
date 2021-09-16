@@ -23,10 +23,10 @@ public class TextController : MonoBehaviour
     {
         m_gameObject.SetActive(true);
 
-        if (inputText.Length > 8)
+        if (inputText.Length > 10)
         {
             Debug.Log(inputText);
-            text_Object.text = inputText.Substring(0, 8) + "\n" + inputText.Substring(8, inputText.Length - 8);
+            text_Object.text = inputText.Substring(0,10) + "\r" + inputText.Substring(10, inputText.Length - 10);
         }
         else
         {
@@ -37,7 +37,7 @@ public class TextController : MonoBehaviour
 
     IEnumerator FadePanel()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         m_gameObject.SetActive(false);
     }
 

@@ -11,7 +11,7 @@ public class CloseDoor : ItemBase
         if (!m_isChecked)
         {
             Debug.Log("開かずの扉を調べてみた");
-            TextController.Instance.DisplayText("、、、、、、、\r\n開かないみたい");
+            TextController.Instance.DisplayText("、、、、、、、開かないみたい");
             m_isChecked = true;
             m_selectButton.SetActive(false);
             //if (m_isMustItem)
@@ -26,7 +26,7 @@ public class CloseDoor : ItemBase
         if (!m_isChecked)
         {
             Debug.Log("調べなかった");
-            TextController.Instance.DisplayText("ふさいでる木材、、\r\n古びてるし触りたくない");
+            TextController.Instance.DisplayText("ふさいでる木材が古びてる、触りたくない");
             m_isChecked = true;
             m_selectButton.SetActive(false);
             //if (m_isMustItem)

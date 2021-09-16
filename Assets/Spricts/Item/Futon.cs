@@ -12,7 +12,7 @@ public class Futon : ItemBase
         if (!m_isChecked)
         {
             Debug.Log("布団を調べてみた");
-            TextController.Instance.DisplayText("薄汚い布団だ\r\n夜が明けるまでこれで寝ようかな");
+            TextController.Instance.DisplayText("薄汚い布団だが\r\n夜が明けるまでこれで寝ようかな");
             m_isChecked = true;
             m_selectButton.SetActive(false);
             //if (m_isMustItem)
@@ -27,7 +27,7 @@ public class Futon : ItemBase
         if (!m_isChecked)
         {
             Debug.Log("調べなかった");
-            TextController.Instance.DisplayText("薄汚い布団だ\r\n触りたくない");
+            TextController.Instance.DisplayText("薄汚い布団だ、触りたくない");
             m_isChecked = true;
             m_selectButton.SetActive(false);
             //if (m_isMustItem)

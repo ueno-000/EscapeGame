@@ -11,7 +11,7 @@ public class Door : ItemBase
         if (!m_isChecked)
         {
             Debug.Log("入ってきた扉だ");
-            TextController.Instance.DisplayText("入ってきた扉だ。\r\n外は暗いから出ないでおこう。");
+            TextController.Instance.DisplayText("入ってきた扉だ\r\n外は暗いから出ないでおこう");
             m_isChecked = true;
             m_selectButton.SetActive(false);
             //if (m_isMustItem)
@@ -26,7 +26,7 @@ public class Door : ItemBase
         if (!m_isChecked)
         {
             Debug.Log("入ってきた扉だ、調べる必要はなさそうだ");
-            TextController.Instance.DisplayText("入ってきた扉だ。\r\n外は暗いから出ないでおこう。");
+            TextController.Instance.DisplayText("入ってきた扉だ\r\n外は暗いから出ないでおこう");
             m_isChecked = true;
             m_selectButton.SetActive(false);
             //if (m_isMustItem)

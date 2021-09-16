@@ -13,13 +13,9 @@ public class Waste : ItemBase
         if (!m_isChecked)
         {
             Debug.Log("調べてみた");
-            TextController.Instance.DisplayText("紙くずだ\r\nカニに注意とかいてある\r\n張り紙だったのか");
+            TextController.Instance.DisplayText("紙くずだ");
             m_isChecked = true;
             m_selectButton.SetActive(false);
-            //if (m_isMustItem)
-            //{
-            //    GameManager.Instance.AddItem();
-            //}
             gamemanager.ItemCount++;
         }
     }
@@ -28,13 +24,9 @@ public class Waste : ItemBase
         if (!m_isChecked)
         {
             Debug.Log("調べなかった");
-            TextController.Instance.DisplayText("紙くずだ\r\nカニに注意と書いてあるのが見える");
+            TextController.Instance.DisplayText("紙くずだ\r\n触りたくはない");
             m_isChecked = true;
             m_selectButton.SetActive(false);
-            //if (m_isMustItem)
-            //{
-            //    GameManager.Instance.AddItem();
-            //}
             gamemanager.ItemCount++;
         }
     }
