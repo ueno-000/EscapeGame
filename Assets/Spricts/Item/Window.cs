@@ -12,7 +12,7 @@ public class Window : ItemBase
         if (!m_isChecked)
         {
             Debug.Log("窓を調べてみた");
-            TextController.Instance.DisplayText("カニの死骸がある。海が近いからかなあ、");
+            TextController.Instance.DisplayText("窓の下でカニが月光浴してる");
             m_isChecked = true;
             m_selectButton.SetActive(false);
             //if (m_isMustItem)

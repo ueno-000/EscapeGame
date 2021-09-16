@@ -27,7 +27,7 @@ public class Rocker : ItemBase
         if (!m_isChecked)
         {
             Debug.Log("調べなかった");
-            TextController.Instance.DisplayText("気になって開けたら、ロッカーにサメが入っていた\r\nサメは仲間になってくれるようだ");
+            TextController.Instance.DisplayText("ロッカーからサメが出てきた\r\n仲間になりたいようだ");
             m_isChecked = true;
             m_selectButton.SetActive(false);
             m_Image.SetActive(true);

@@ -14,7 +14,7 @@ public class Desk : ItemBase
         if (!m_isChecked)
         {
             Debug.Log("机を調べてみた");
-            TextController.Instance.DisplayText("机の裏にあった懐中電灯をみつけた");
+            TextController.Instance.DisplayText("机の裏にあった\r\n懐中電灯をみつけた");
             m_isChecked = true;
             m_selectButton.SetActive(false);
             m_Image.SetActive(true);
