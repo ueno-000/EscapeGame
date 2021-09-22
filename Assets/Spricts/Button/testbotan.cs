@@ -32,6 +32,7 @@ public class testbotan : MonoBehaviour, IPointerClickHandler
         if (clickCount >= activeCount)
         {
             Debug.Log("シーン切替");
+            SceneManager.LoadScene("Clear1");
         }
     }
 

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -7,6 +8,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_movePower = 3f;
     /// <summary>ジャンプする力</summary>
     [SerializeField] float m_jumpPower = 15f;
+    /// <summary>右を向いたときに変える画像</summary>
+    [SerializeField] Sprite m_rightSprite = null;
+    /// <summary>左を向いたときに変える画像</summary>
+    [SerializeField] Sprite m_leftSprite = null;
+    ///// <summary>ジャンプしたときに変える画像</summary>
+    //[SerializeField] Sprite m_jumpSprite = null;
     Rigidbody2D m_rb = default;
     /// <summary>接地フラグ</summary>
     //bool m_isGrounded = false;
@@ -31,11 +38,13 @@ public class PlayerController : MonoBehaviour
         // ジャンプ処理
         if (JumpCount < 2 && Input.GetButtonDown("Jump")) // m_isGrounded
         {
-           // m_isGrounded = false;
+            // m_isGrounded = false;
+            
             m_rb.AddForce(Vector2.up * m_jumpPower, ForceMode2D.Impulse);
             JumpCount++;
+            
         }
-
+    
 
 
         //画面外に落ちたら初期位置に戻す
@@ -76,12 +85,21 @@ public class PlayerController : MonoBehaviour
             m_sprite.flipX = (m_h < 0);
         }
 
-        //// アニメーションを制御する
-        //if (m_anim)
+        //if (m_sprite.flipX == true)
         //{
-        //    m_anim.SetFloat("SpeedX", Mathf.Abs(m_rb.velocity.x));
-        //    m_anim.SetFloat("SpeedY", m_rb.velocity.y);
-        //    m_anim.SetBool("IsGrounded", m_isGrounded);
+        //    m_sprite.sprite = m_leftSprite;
         //}
+        //else
+        //{
+        //    m_sprite.sprite = m_rightSprite;
+        //}
+
+        // アニメーションを制御する
+        if (m_anim)
+        {
+            m_anim.SetFloat("SpeedX", Mathf.Abs(m_rb.velocity.x));
+            m_anim.SetFloat("SpeedY", m_rb.velocity.y);
+            //m_anim.SetBool("IsGrounded", m_isGrounded);
+        }
     }
 }
