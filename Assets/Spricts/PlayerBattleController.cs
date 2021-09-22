@@ -6,9 +6,7 @@ public class PlayerBattleController : MonoBehaviour
     /// <summary>移動する時にかける力</summary>
     [SerializeField] float m_movePower = 3f;
     /// <summary>ジャンプ速度</summary>
-    [SerializeField] float m_jumpSpeed = 5f;
-    /// <summary>ジャンプ中にジャンプボタンを離した時の上昇速度減衰率</summary>
-    [SerializeField] float m_gravityDrag = .8f;
+    [SerializeField] float m_jumpPower = 5f;
     Rigidbody2D m_rb = default;
     /// <summary>接地フラグ</summary>
     bool m_isGrounded = false;
@@ -16,10 +14,7 @@ public class PlayerBattleController : MonoBehaviour
     Animator m_anim = default;
     SpriteRenderer m_sprite = default;
     float m_h = 0;
-    /// <summary>弾丸のプレハブ</summary>
-    [SerializeField] GameObject m_bulletPrefab = default;
-    /// <summary>銃口の位置を設定するオブジェクト</summary>
-    [SerializeField] Transform m_muzzle = default;
+    int JumpCount = 0;
     [SerializeField] HpController helth;
     [SerializeField] int Hp = 10;
 
@@ -37,15 +32,10 @@ public class PlayerBattleController : MonoBehaviour
         Vector2 velocity = m_rb.velocity;
 
         // ジャンプ処理
-        if (Input.GetButtonDown("Jump") && m_isGrounded)
+        if (Input.GetButtonDown("Jump") && JumpCount < 2&&m_isGrounded)
         {
             m_isGrounded = false;
-            velocity.y = m_jumpSpeed;
-        }
-        else if (!Input.GetButton("Jump") && velocity.y > 0)
-        {
-            // 上昇中にジャンプボタンを離したら上昇を減速する
-            velocity.y *= m_gravityDrag;
+            velocity.y = m_jumpPower;
         }
 
         m_rb.velocity = velocity;
@@ -55,24 +45,28 @@ public class PlayerBattleController : MonoBehaviour
         {
             this.transform.position = m_initialPosition;
         }
+
+        //マウスクリックで攻撃
+        if (Input.GetButtonDown("Fire1"))
+        {
+            m_anim.SetTrigger("AttackTrigger");
+
+        }
+
     }
-    //if (Input.GetButtonDown("Fire1"))
-    //{
-    //    var go = Instantiate(m_bulletPrefab, this.m_muzzle.position, this.transform.rotation);
-    //    //go.transform.position = m_muzzle.position;
-    //    Hp--;
-    //    helth.UpdateSlider(Hp);
-    //    if (this.transform.localScale.x < 0)
-    //    {
-    //        go.transform.Rotate(Vector3.forward, 180f);
-    //    }
-    //}
 
     void FixedUpdate()
     {
         m_rb.AddForce(m_h * m_movePower * Vector2.right);
     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            JumpCount = 0;
+          
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         m_isGrounded = true;
@@ -82,6 +76,7 @@ public class PlayerBattleController : MonoBehaviour
     {
         m_isGrounded = false;
     }
+
 
     private void LateUpdate()
     {
@@ -96,7 +91,8 @@ public class PlayerBattleController : MonoBehaviour
         {
             m_anim.SetFloat("SpeedX", Mathf.Abs(m_rb.velocity.x));
             m_anim.SetFloat("SpeedY", m_rb.velocity.y);
-            m_anim.SetBool("IsGrounded", m_isGrounded);
+            m_anim.SetBool("IsGround", m_isGrounded);
         }
     }
+
 }
