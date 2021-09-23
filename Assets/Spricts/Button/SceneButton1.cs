@@ -23,10 +23,17 @@ public class SceneButton1 : MonoBehaviour
         SceneManager.LoadScene("1F-1");
         m_sound1.PlayOneShot(m_sound1.clip);
     }
+
     public void OnClickTitleScene()
     {
         Debug.Log("Titleにシーン切替");
         SceneManager.LoadScene("Title");
+        m_sound1.PlayOneShot(m_sound1.clip);
+    }
+    public void OnClickGameStart()
+    {
+        Debug.Log("シーン切替");
+        SceneManager.LoadScene("1F-1");
         m_sound1.PlayOneShot(m_sound1.clip);
     }
     public void OnClickHouseScene()
