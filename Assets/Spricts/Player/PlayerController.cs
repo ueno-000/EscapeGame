@@ -8,15 +8,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_movePower = 3f;
     /// <summary>ジャンプする力</summary>
     [SerializeField] float m_jumpPower = 15f;
-    /// <summary>右を向いたときに変える画像</summary>
-    [SerializeField] Sprite m_rightSprite = null;
-    /// <summary>左を向いたときに変える画像</summary>
-    [SerializeField] Sprite m_leftSprite = null;
-    ///// <summary>ジャンプしたときに変える画像</summary>
-    //[SerializeField] Sprite m_jumpSprite = null;
     Rigidbody2D m_rb = default;
     /// <summary>接地フラグ</summary>
-    //bool m_isGrounded = false;
+    bool m_isGrounded = false;
+
     Vector3 m_initialPosition = default;
    Animator m_anim = default;
     SpriteRenderer m_sprite = default;

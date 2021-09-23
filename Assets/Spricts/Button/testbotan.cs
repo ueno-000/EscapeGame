@@ -17,9 +17,16 @@ public class testbotan : MonoBehaviour, IPointerClickHandler
     private int clickCount = 0;
 
     private float lastTimeClick;
+    public AudioSource m_sound;
 
+
+    void Start()
+    {
+        m_sound = GetComponent<AudioSource>();
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
+        m_sound.PlayOneShot(m_sound.clip);
         clickCount++;
         float currentTimeClick = eventData.clickTime;
         if (Mathf.Abs(currentTimeClick - lastTimeClick) >= clickInterval)

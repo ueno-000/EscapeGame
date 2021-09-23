@@ -9,7 +9,6 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance => m_instance;
     private SoundManager() { }
 
-    public AudioSource m_sourceVoice;
     public AudioSource m_sourceSE;
 
     AudioClip m_mouseEnter = null;
@@ -25,10 +24,7 @@ public class SoundManager : MonoBehaviour
     }
     /// <summary>声を再生する</summary>
     /// <param name="voice">AudioClip</param>
-    public void OnPlayVoice(AudioClip voice)
-    {
-        m_sourceVoice.PlayOneShot(voice);
-    }
+
 
 
     /// <summary>マウスカーソルが重なった時に音を鳴らす</summary>

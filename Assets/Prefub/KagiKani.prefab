@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 5785375017867564521}
   - component: {fileID: 1662428675}
   - component: {fileID: 1662428674}
-  - component: {fileID: 7911493066850434472}
+  - component: {fileID: 1662428676}
   m_Layer: 0
   m_Name: KagiKani
-  m_TagString: Untagged
+  m_TagString: Kani
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 696112f0b04f75545988a631e0a4bc57, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -124,7 +124,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1662428674
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -151,7 +151,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.721957}
   m_EdgeRadius: 0
---- !u!114 &7911493066850434472
+--- !u!114 &1662428676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,10 +160,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5785375017867564520}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de6b0493bbaf714ca565fea6be0648f, type: 3}
+  m_Script: {fileID: 11500000, guid: 96c1cfa9101c934458922824ed331526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_effectPrefab: {fileID: 0}
-  Hp: 0
-  m_explosionPrefab: {fileID: 0}
-  KeyKani: 0
+  m_effectPrefab: {fileID: 379054493538499738, guid: 3f840523eba397a44a6b93dcfc900858,
+    type: 3}
+  Hp: 3
+  m_explosionPrefab: {fileID: 12066988202097898, guid: 78646d2390f2fe34db4f469a3546a2b4,
+    type: 3}
+  m_keyController: {fileID: 0}
+  CountText: {fileID: 0}
+  KeyKani: 1

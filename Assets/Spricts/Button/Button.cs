@@ -5,12 +5,14 @@ using UnityEngine;
 public class Button : MonoBehaviour
 {
     public GameObject button;
+    public AudioSource m_sound;
     int counter = 0;
     const int counterMax = 20; //最大値
 
     void Start()
     {
         button.SetActive(false);
+        m_sound = GetComponent<AudioSource>();
     }
 
     //OnTriggerStay関数
@@ -43,6 +45,7 @@ public class Button : MonoBehaviour
     public void OnClick()
     {
         button.SetActive(true);
+        m_sound.PlayOneShot(m_sound.clip);
     }
     public void DeleteButton()
     {

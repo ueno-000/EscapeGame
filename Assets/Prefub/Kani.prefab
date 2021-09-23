@@ -165,6 +165,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_effectPrefab: {fileID: 379054493538499738, guid: 3f840523eba397a44a6b93dcfc900858,
     type: 3}
-  Hp: 3
+  Hp: 2
   m_explosionPrefab: {fileID: 12066988202097898, guid: 78646d2390f2fe34db4f469a3546a2b4,
     type: 3}
+  m_keyController: {fileID: 0}
+  CountText: {fileID: 0}
+  KeyKani: 0

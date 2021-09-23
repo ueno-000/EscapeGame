@@ -42,7 +42,7 @@ public class ItemBase : MonoBehaviour
         {
             m_backGround.SetActive(true);     // 背後の絵を非表示にする
         }
-        //SoundManager.Instance.MouseEnterSound();
+        SoundManager.Instance.MouseEnterSound();
     }
 
     /// <summary>マスカーソルが離れた時に呼ばれるメソッド</summary>

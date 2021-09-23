@@ -38,6 +38,7 @@ public class PlayerBattleController : MonoBehaviour
         {
             m_isGrounded = false;
             velocity.y = m_jumpPower;
+            JumpCount++;
         }
 
         m_rb.velocity = velocity;
@@ -97,7 +98,7 @@ public class PlayerBattleController : MonoBehaviour
         if (m_anim)
         {
             m_anim.SetFloat("SpeedX", Mathf.Abs(m_rb.velocity.x));
-            m_anim.SetFloat("SpeedY", m_rb.velocity.y);
+            //m_anim.SetFloat("SpeedY", m_rb.velocity.y);
             m_anim.SetBool("IsGround", m_isGrounded);
         }
     }
