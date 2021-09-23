@@ -522,8 +522,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.16, y: 3.44}
-    newSize: {x: 11.52, y: 6.48}
+    oldSize: {x: 3.44, y: 3.44}
+    newSize: {x: 3.44, y: 3.44}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -570,12 +570,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1f79c446980c2ed4ea04a2035f7404f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb9e97691b1bed84bb357b32ae9d0147, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 11.52, y: 6.48}
+  m_Size: {x: 3.44, y: 3.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -608,9 +608,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1306202e05bcc3f4d96c287b0526c4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletPrefab: {fileID: 2712226585053310322, guid: 587987f398483d749861d430a2521fea,
-    type: 3}
-  m_muzzle: {fileID: 94290363}
+  m_movePower: 3
+  m_jumpPower: 5
+  m_sound1: {fileID: 0}
+  m_sound2: {fileID: 0}
   helth: {fileID: 1839993924}
   Hp: 20
 --- !u!114 &586857662

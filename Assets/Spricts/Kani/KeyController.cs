@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 
 public class KeyController : MonoBehaviour
@@ -10,7 +12,8 @@ public class KeyController : MonoBehaviour
     //[SerializeField] int m_Interval = 0;
     [SerializeField] GameObject m_KeyPrefub;
     bool isCount1 = false;
-    bool isCount2 = false;
+    bool isCount3 = false;
+    bool isCount5 = false;
 
     //void Start()
     //{
@@ -37,22 +40,43 @@ public class KeyController : MonoBehaviour
             StartCoroutine("Key1");
         }
 
-        if (KeyCount == 2 && !isCount2) 
+        if (KeyCount == 5 && !isCount3)
         {
-            isCount2 = true;
-            StartCoroutine("Key2");
+            isCount3 = true;
+            StartCoroutine("Key3");
+        }
+
+        if (KeyCount == 5 && !isCount5) 
+        {
+            isCount5 = true;
+            StartCoroutine("Key5");
         }
     }
 
     IEnumerator Key1()
     {
         yield return new WaitForSeconds(1f);
-        TextController.Instance.DisplayText("！、、灯台の鍵が手に入った\r\nとりあえず全てのカニを倒そう");
+        TextController.Instance.DisplayText("！、、灯台の鍵が手に入った\r\n全部で5つ必要みたいだ");
+    }
+    IEnumerator Key3()
+    {
+        yield return new WaitForSeconds(1f);
+        TextController.Instance.DisplayText("残り2つ必要だ");
     }
     IEnumerator Key5()
     {
         yield return new WaitForSeconds(1f);
-        TextController.Instance.DisplayText("2個目灯台の鍵が手に入った！");
+        TextController.Instance.DisplayText("全ての灯台の鍵が手に入った！");
+        TextController.Instance.DisplayText("灯台へ向かおう");
+        StartCoroutine("Scene3F");
+    }
+  
+    IEnumerator Scene3F()
+    {
+        yield return new WaitForSeconds(3f);
+        Debug.Log("3Fにシーン切替");
+        SceneManager.LoadScene("3F");
+
     }
     //private Vector3 GetRandomPosition()
     //{

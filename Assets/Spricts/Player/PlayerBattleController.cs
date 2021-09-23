@@ -15,9 +15,17 @@ public class PlayerBattleController : MonoBehaviour
     SpriteRenderer m_sprite = default;
     float m_h = 0;
     int JumpCount = 0;
+    /// <summary>SE</summary>
+    public AudioSource m_sound1;
+    public AudioSource m_sound2;
+    public AudioSource m_sound3;
     /// <summary>HP</summary>
     [SerializeField] HpController helth;
     [SerializeField] int Hp = 10;
+    /// <summary>GameOverPannel</summary>
+    [SerializeField] GameObject m_Pannel;
+
+    bool PlayerHp0 = false;
 
 
 
@@ -27,6 +35,10 @@ public class PlayerBattleController : MonoBehaviour
         m_anim = GetComponent<Animator>();
         m_sprite = GetComponent<SpriteRenderer>();
         m_initialPosition = this.transform.position;
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        m_sound1 = audioSources[0];
+        m_sound2 = audioSources[1];
+        m_sound3 = audioSources[2];
     }
     void  Update()
     {
@@ -52,9 +64,23 @@ public class PlayerBattleController : MonoBehaviour
         //マウスクリックでanimation
         if (Input.GetButtonDown("Fire1"))
         {
+            m_sound1.PlayOneShot(m_sound1.clip);
             m_anim.SetTrigger("AttackTrigger");
         }
-
+        if (Input.GetButtonDown("Fire2"))
+        {
+            Hp += 5;
+            m_sound1.PlayOneShot(m_sound3.clip);
+            helth.UpdateSlider(Hp);
+        }
+        //Hpが０の時の処理
+        if (Hp <= 0 && !PlayerHp0)
+        {
+            PlayerHp0 = true;
+            Debug.Log("HPが０になってしまった");
+            TextController.Instance.DisplayText("HPが０になってしまった");
+            m_Pannel.SetActive(true);
+        }
     }
 
     void FixedUpdate()
@@ -75,7 +101,9 @@ public class PlayerBattleController : MonoBehaviour
         if (collision.gameObject.tag == "Kani")
         {
             Hp--;
+            m_sound2.PlayOneShot(m_sound2.clip);
             m_anim.SetTrigger("DamageTrigger");
+            helth.UpdateSlider(Hp);
         }
         
     }

@@ -20,7 +20,7 @@ public class KaniGenerate : MonoBehaviour
 
     IEnumerator KeyKaniCount()
     {
-        for (int count = 0; count < 18; count++)
+        for (int count = 0; count < 20; count++)
         {
             //秒おきに生成する
             yield return new WaitForSeconds(m_interval);

@@ -9,6 +9,7 @@ public class SceneButton1 : MonoBehaviour
     public AudioSource m_sound2;
     public AudioSource m_sound3;
 
+
     void Start()
     {
         AudioSource[] audioSources = GetComponents<AudioSource>();
@@ -34,7 +35,14 @@ public class SceneButton1 : MonoBehaviour
         m_sound2.PlayOneShot(m_sound2.clip);
         StartCoroutine("HouseScene");
     }
-    IEnumerator HouseScene()
+    public void OnClick2FScene()
+    {
+        Debug.Log("2Fにシーン切替");
+        m_sound2.PlayOneShot(m_sound2.clip);
+        SceneManager.LoadScene("2F");
+    }
+
+        IEnumerator HouseScene()
     {
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("1F-House");
@@ -55,4 +63,7 @@ public class SceneButton1 : MonoBehaviour
         TextController.Instance.DisplayText("案内板だ。ふむふむ…\r\n灯台を目指すか");
         m_sound2.PlayOneShot(m_sound2.clip);
     }
+
+   
+
 }

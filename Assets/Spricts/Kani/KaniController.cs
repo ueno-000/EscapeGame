@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class KaniController : MonoBehaviour
 {
     /// <summary>sameが当たった時に表示されるエフェクト</summary>
@@ -10,9 +11,8 @@ public class KaniController : MonoBehaviour
     [SerializeField] int Hp = 0;
     /// <summary>Deathエフェクトのプレハブ</summary>
     [SerializeField] GameObject m_explosionPrefab = null;
-    /// <summary>Itemの選択回数のカウント</summary>
-   //[SerializeField]GameObject KeyController;
-    KeyController m_keyController;
+    /// <summary>鍵を持ったカニカウント</summary>
+    [SerializeField] KeyController m_keyController;
     [SerializeField] bool KeyKani;
     Animator m_anim = default;
 
@@ -35,9 +35,7 @@ public class KaniController : MonoBehaviour
 
             // 自分自身を破棄する処理
             if (Hp < 1) 
-            { 
-                //count++;//カニを倒したカウント
-                //Debug.Log("カニを倒した" + count);
+            {
 
                 if (KeyKani==true) //KeyKaniにチェックが入っていた場合の処理
                 {
@@ -54,6 +52,5 @@ public class KaniController : MonoBehaviour
             }
         }
     }
-
 
 }
