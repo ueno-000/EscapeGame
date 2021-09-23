@@ -36,7 +36,7 @@ public class SceneButton1 : MonoBehaviour
     }
     IEnumerator HouseScene()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("1F-House");
     }
     public void OnPanel()
