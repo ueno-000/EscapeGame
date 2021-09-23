@@ -71,6 +71,12 @@ public class PlayerBattleController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         m_isGrounded = true;
+        if (collision.gameObject.tag == "Kani")
+        {
+            Hp--;
+            m_anim.SetTrigger("DamageTrigger");
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
