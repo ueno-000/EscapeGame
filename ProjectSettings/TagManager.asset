@@ -6,6 +6,7 @@ TagManager:
   tags:
   - sensor
   - Ground
+  - Same
   layers:
   - Default
   - TransparentFX

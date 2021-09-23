@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// hosiを制御するコンポーネント
+/// sameを制御するコンポーネント
 /// </summary>
 public class SameBullet: MonoBehaviour
 {
     /// <summary>弾が飛ぶ速さ</summary>
-    [SerializeField] float m_speed = 3f;
+    [SerializeField] float m_speed = 6.0f;  
     /// <summary>弾の生存期間（秒）</summary>
     [SerializeField] float m_lifeTime = 5f;
 
@@ -18,5 +18,9 @@ public class SameBullet: MonoBehaviour
         rb.velocity = this.transform.right * m_speed;
         // 生存期間が経過したら自分自身を破棄する
         Destroy(this.gameObject, m_lifeTime);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(gameObject);    //攻撃オブジェクトの破棄
     }
 }

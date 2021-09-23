@@ -15,8 +15,10 @@ public class PlayerBattleController : MonoBehaviour
     SpriteRenderer m_sprite = default;
     float m_h = 0;
     int JumpCount = 0;
+    /// <summary>HP</summary>
     [SerializeField] HpController helth;
     [SerializeField] int Hp = 10;
+
 
 
     void Start()
@@ -26,13 +28,13 @@ public class PlayerBattleController : MonoBehaviour
         m_sprite = GetComponent<SpriteRenderer>();
         m_initialPosition = this.transform.position;
     }
-    void Update()
+    void  Update()
     {
         m_h = Input.GetAxis("Horizontal");
         Vector2 velocity = m_rb.velocity;
 
         // ジャンプ処理
-        if (Input.GetButtonDown("Jump") && JumpCount < 2&&m_isGrounded)
+        if (Input.GetButtonDown("Jump") && JumpCount < 2)
         {
             m_isGrounded = false;
             velocity.y = m_jumpPower;
@@ -46,11 +48,10 @@ public class PlayerBattleController : MonoBehaviour
             this.transform.position = m_initialPosition;
         }
 
-        //マウスクリックで攻撃
+        //マウスクリックでanimation
         if (Input.GetButtonDown("Fire1"))
         {
             m_anim.SetTrigger("AttackTrigger");
-
         }
 
     }
