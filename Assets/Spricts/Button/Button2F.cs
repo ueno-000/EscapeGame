@@ -57,8 +57,6 @@ public class Button2F : MonoBehaviour
         yield return new WaitForSeconds(3f);
         m_Sllider.SetActive(true);
         m_TestPlayer.SetActive(false);
-        m_prefab.SetActive(false);
-        m_prefab2.SetActive(false);
         m_Player.SetActive(true);
     }
 }
