@@ -12,10 +12,11 @@ public class SceneButton1 : MonoBehaviour
 
     void Start()
     {
-        AudioSource[] audioSources = new AudioSource[3];
-        m_sound1 = audioSources[0];
-        m_sound2 = audioSources[1];
-        m_sound3 = audioSources[2];
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        //AudioSource[] audioSources = new AudioSource[3];
+        //m_sound1 = audioSources[0];
+        //m_sound2 = audioSources[1];
+        //m_sound3 = audioSources[2];
     }
     public void OnClickRetryScene()
     {

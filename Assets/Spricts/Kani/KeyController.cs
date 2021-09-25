@@ -40,7 +40,7 @@ public class KeyController : MonoBehaviour
             StartCoroutine("Key1");
         }
 
-        if (KeyCount == 5 && !isCount3)
+        if (KeyCount == 3 && !isCount3)
         {
             isCount3 = true;
             StartCoroutine("Key3");

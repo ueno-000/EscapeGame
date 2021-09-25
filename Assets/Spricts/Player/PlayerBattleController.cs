@@ -36,9 +36,9 @@ public class PlayerBattleController : MonoBehaviour
         m_sprite = GetComponent<SpriteRenderer>();
         m_initialPosition = this.transform.position;
         AudioSource[] audioSources = GetComponents<AudioSource>();
-        m_sound1 = audioSources[0];
-        m_sound2 = audioSources[1];
-        m_sound3 = audioSources[2];
+        //m_sound1 = audioSources[0];
+        //m_sound2 = audioSources[1];
+        //m_sound3 = audioSources[2];
     }
     void  Update()
     {
@@ -70,7 +70,7 @@ public class PlayerBattleController : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
         {
             Hp += 5;
-            m_sound1.PlayOneShot(m_sound3.clip);
+            m_sound3.PlayOneShot(m_sound3.clip);
             helth.UpdateSlider(Hp);
         }
         //Hpが０の時の処理
