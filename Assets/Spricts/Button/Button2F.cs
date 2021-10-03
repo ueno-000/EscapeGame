@@ -20,11 +20,6 @@ public class Button2F : MonoBehaviour
         m_sound = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void GuideComment2()
     {

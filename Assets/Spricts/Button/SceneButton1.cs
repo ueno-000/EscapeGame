@@ -20,7 +20,7 @@ public class SceneButton1 : MonoBehaviour
     }
     public void OnClickRetryScene()
     {
-        Debug.Log("1Fにシーン切替");
+        Debug.Log("1F-1にシーン切替");
         SceneManager.LoadScene("1F-1");
         m_sound1.PlayOneShot(m_sound1.clip);
     }
@@ -33,8 +33,8 @@ public class SceneButton1 : MonoBehaviour
     }
     public void OnClickGameStart()
     {
-        Debug.Log("シーン切替");
-        SceneManager.LoadScene("1F-1");
+        Debug.Log("浜辺にシーン切替");
+        SceneManager.LoadScene("1F-Hamabe");
         m_sound1.PlayOneShot(m_sound1.clip);
     }
     public void OnClickHouseScene()
