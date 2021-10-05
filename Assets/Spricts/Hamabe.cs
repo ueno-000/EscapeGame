@@ -14,6 +14,10 @@ public class Hamabe : MonoBehaviour
     [SerializeField] GameObject m_Guide1 = default;
     /// <summary>説明Image２</summary>
     [SerializeField] GameObject m_Guide2 = default;
+    /// <summary>プレイヤー顔１</summary>
+    [SerializeField] Image m_faceImage1 = default;
+    /// <summary>プレイヤー顔２</summary>
+    [SerializeField] Image m_faceImage2 = default;
     //フェードイン処理の開始、完了を管理するフラグ
     private bool isFadeIn = false;
     /// <summary>フェードアウト完了までにかかる時間（秒）/summary>
@@ -87,6 +91,8 @@ public class Hamabe : MonoBehaviour
         yield return new WaitForSeconds(5f);
         yield return StartCoroutine("StartFadeIn");
         yield return new WaitForSeconds(3f);
+        m_faceImage1.gameObject.SetActive(false); // 画像を非アクティブにする
+        m_faceImage2.gameObject.SetActive(true); // 画像をアクティブにする
         TextController.Instance.DisplayText("ここは、、、どこ？");
         yield return new WaitForSeconds(5f);
         TextController.Instance.DisplayText("海に浜辺");
