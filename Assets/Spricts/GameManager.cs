@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
     void OnFadeFinished()
     {
         Debug.Log("Fade 完了");
-        SceneManager.LoadScene("2F");
+        SceneManager.LoadScene("2FHouse");
     }
 
 }
