@@ -12,7 +12,7 @@ public class MouseHole : ItemBase
         if (!m_isChecked)
         {
             Debug.Log("ネズミの穴を調べてみた");
-            TextController.Instance.DisplayText("ねずみの穴だ、、\r\n＊あなたは決意で満たされた");
+            TextController.Instance.DisplayText("ねずみの穴だ、、\r\n目が光っている、、");
             m_isChecked = true;
             m_selectButton.SetActive(false);
             //if (m_isMustItem)

@@ -15,16 +15,17 @@ public class Manager3F : MonoBehaviour
     /// <summary>フェードアウト完了までにかかる時間（秒）/summary>
     float m_fadeTime = 5f;
     float m_timer = 0f;
+
     public AudioSource m_soundRain;
+    public AudioSource m_soundKaze;
     public AudioSource m_soundKey;
     public AudioSource m_soundDoor;
+
 
     void Start()
     {
         StartCoroutine("GirlComment");
         m_soundRain = GetComponent<AudioSource>();
-        m_soundKey = GetComponent<AudioSource>();
-        m_soundDoor = GetComponent<AudioSource>();
     }
 
     IEnumerator StartFadeIn()
@@ -88,12 +89,14 @@ public class Manager3F : MonoBehaviour
         yield return new WaitForSeconds(3f);
         yield return StartCoroutine("VolumeDown");
         yield return StartCoroutine("StartFadeIn");
+        m_soundKaze.PlayOneShot(m_soundKaze.clip);
         yield return new WaitForSeconds(3f);
         TextController.Instance.DisplayText("きっと助けを呼べるものがあるはず");
         yield return new WaitForSeconds(5f);
         m_soundKey.PlayOneShot(m_soundKey.clip);
         TextController.Instance.DisplayText("ーー灯台の扉を開けたーー");
-        m_soundDoor.PlayOneShot(m_soundDoor.clip);
+        yield return new WaitForSeconds(2f);
+        m_soundKey.PlayOneShot(m_soundDoor.clip);
         yield return new WaitForSeconds(5f);
         yield return StartCoroutine("StartFadeOut");
         SceneManager.LoadScene("TrueClearScene");
