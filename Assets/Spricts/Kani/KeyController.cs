@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 
 public class KeyController : MonoBehaviour
@@ -11,6 +11,7 @@ public class KeyController : MonoBehaviour
     ///// <summary>KeyKaniを生成する間隔の秒数</summary>
     //[SerializeField] int m_Interval = 0;
     [SerializeField] GameObject m_KeyPrefub;
+    [SerializeField] GameObject m_keyImage;
     bool isCount1 = false;
     bool isCount3 = false;
     bool isCount5 = false;
@@ -56,17 +57,22 @@ public class KeyController : MonoBehaviour
     IEnumerator Key1()
     {
         yield return new WaitForSeconds(1f);
-        TextController.Instance.DisplayText("！、、灯台の鍵が手に入った\r\n全部で5つ必要みたいだ");
+        TextController.Instance.DisplayText("！、、灯台の鍵だ\r\n鍵を持ったカニを倒そう");
     }
     IEnumerator Key3()
     {
+        m_keyImage.SetActive(true);
         yield return new WaitForSeconds(1f);
-        TextController.Instance.DisplayText("残り2つ必要だ");
+        TextController.Instance.DisplayText("鍵は5つあるようだ\r\n残り２つみたい");
+        yield return new WaitForSeconds(2f);
+        m_keyImage.SetActive(false);
+
     }
     IEnumerator Key5()
     {
         yield return new WaitForSeconds(1f);
         TextController.Instance.DisplayText("全ての灯台の鍵が手に入った！");
+        yield return new WaitForSeconds(3f);
         TextController.Instance.DisplayText("灯台へ向かおう");
         StartCoroutine("Scene3F");
     }

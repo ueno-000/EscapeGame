@@ -22,6 +22,8 @@ public class PlayerBattleController : MonoBehaviour
     /// <summary>HP</summary>
     [SerializeField] HpController helth;
     [SerializeField] int Hp = 10;
+    ///<summary>回復できる回数<>
+    int RecoveryCount = 10;
     /// <summary>GameOverPannel</summary>
     [SerializeField] GameObject m_Pannel;
 
@@ -67,12 +69,20 @@ public class PlayerBattleController : MonoBehaviour
             m_sound1.PlayOneShot(m_sound1.clip);
             m_anim.SetTrigger("AttackTrigger");
         }
-        if (Input.GetButtonDown("Fire2"))
+        //回復
+        if (Input.GetButtonDown("Fire2")&&RecoveryCount>0)
         {
             Hp += 5;
             m_sound3.PlayOneShot(m_sound3.clip);
             helth.UpdateSlider(Hp);
+            RecoveryCount--;
+            Debug.Log("残りの携帯食料"+RecoveryCount) ;
         }
+        else if(Input.GetButtonDown("Fire2") && RecoveryCount <= 0)
+        {
+            TextController.Instance.DisplayText("もう携帯食料がない、、回復はできない");
+        }
+
         //Hpが０の時の処理
         if (Hp <= 0 && !PlayerHp0)
         {
