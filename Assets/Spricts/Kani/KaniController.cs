@@ -57,12 +57,10 @@ public class KaniController : MonoBehaviour
             }
         }
     }
-    //Easyモード。Keyとなるカニ(敵)以外を消す。
+    //Easyモード.Keyとなるカニ(敵)以外を消す。
     public void DisableAllKani()
     {
-        //パターン 2: ラムダ式を使う
         m_Kani.ToList().ForEach(b => b.SetActive(false));
-        //ラムダ式を使った方が SetActive の引数を変えたりできるので都合がよい
     }
 
 }
