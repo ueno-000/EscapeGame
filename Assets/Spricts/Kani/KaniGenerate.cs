@@ -18,6 +18,8 @@ public class KaniGenerate : MonoBehaviour
         StartCoroutine("KeyKaniCount");
     }
 
+
+
     IEnumerator KeyKaniCount()
     {
         for (int count = 0; count < 20; count++)

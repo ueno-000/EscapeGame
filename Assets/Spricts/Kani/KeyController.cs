@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,16 +11,18 @@ public class KeyController : MonoBehaviour
     [SerializeField]public int KeyCount = 0;
     ///// <summary>KeyKaniを生成する間隔の秒数</summary>
     //[SerializeField] int m_Interval = 0;
-    [SerializeField] GameObject m_KeyPrefub;
+ //   [SerializeField] GameObject m_KeyPrefub;
     [SerializeField] GameObject m_keyImage;
     bool isCount1 = false;
     bool isCount3 = false;
     bool isCount5 = false;
 
+
     //void Start()
     //{
     //    StartCoroutine("KeyKaniCount");
     //}
+ 
     //IEnumerator KeyKaniCount()
     //{
     //    for (int count = 0; count < 20; count++)
@@ -84,12 +87,13 @@ public class KeyController : MonoBehaviour
         SceneManager.LoadScene("3F");
 
     }
-    //private Vector3 GetRandomPosition()
-    //{
-    //    //それぞれの座標をランダムに生成する
-    //    float x = Random.Range(-40, -40);
 
-    //    //Vector3型のPositionを返す
-    //    return new Vector3(x, 5);
-    //}
+    private Vector3 GetRandomPosition()
+    {
+        //それぞれの座標をランダムに生成する
+        float x = Random.Range(-40, -40);
+
+        //Vector3型のPositionを返す
+        return new Vector3(x, 5);
+    }
 }

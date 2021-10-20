@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -16,9 +17,13 @@ public class KaniController : MonoBehaviour
     [SerializeField] bool KeyKani;
     Animator m_anim = default;
 
+    GameObject[] m_Kani = default;
+
     void Start()
     {
         m_anim = GetComponent<Animator>();
+        m_Kani = GameObject.FindGameObjectsWithTag("Kani");
+        
     }
  
     private void OnTriggerEnter2D(Collider2D collision)
@@ -51,6 +56,13 @@ public class KaniController : MonoBehaviour
                 Destroy(this.gameObject);       // そして自分も破棄する
             }
         }
+    }
+    //Easyモード。Keyとなるカニ(敵)以外を消す。
+    public void DisableAllKani()
+    {
+        //パターン 2: ラムダ式を使う
+        m_Kani.ToList().ForEach(b => b.SetActive(false));
+        //ラムダ式を使った方が SetActive の引数を変えたりできるので都合がよい
     }
 
 }
