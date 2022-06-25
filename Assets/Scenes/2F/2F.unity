@@ -1198,8 +1198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KeyCount: 0
-  m_KeyPrefub: {fileID: 5785375017867564520, guid: ab204e386d9b561428839fc883a68e55,
-    type: 3}
   m_keyImage: {fileID: 1436023309}
 --- !u!4 &401744429
 Transform:
@@ -8397,7 +8395,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325995567}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.7}
+  m_LocalPosition: {x: 0.67, y: -0.33, z: -0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 720493015}
