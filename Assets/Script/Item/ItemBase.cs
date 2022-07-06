@@ -15,12 +15,8 @@ public class ItemBase : MonoBehaviour
     [SerializeField] protected bool m_isMustItem = false;
     /// <summary>探索済みかのフラグ</summary>
     [SerializeField] protected bool m_isChecked = false;
-    /// <summary>プレイヤーの音声</summary>
-    [SerializeField] protected AudioClip m_playerVoice = null;
-    ///// <summary>バディの音声</summary>
-    //[SerializeField] protected AudioClip m_badyVoice = null;
-    /// <summary>Item</summary>
-    //[SerializeField] GameManager gamemanager; 
+
+
     public bool IsMustItem => m_isMustItem;
 
     private void Start()
