@@ -6,22 +6,18 @@ using UnityEngine.UI;
 public class TextController : MonoBehaviour
 {
     public static TextController Instance { get; private set; }
-    [SerializeField] GameObject m_gameObject;
-    [SerializeField] string m_text;
+    [SerializeField] private GameObject _gameObject;
+    [SerializeField] private string _text;
     public Text text_Object;
 
     private void Awake()
     {
         Instance = this;
     }
-    // Start is called before the first frame update
-    private void Start()
-    {
-        //text = GetComponentInChildren<Text>();
-    }
+    
     public void DisplayText(string inputText,bool isFade)
     {
-        m_gameObject.SetActive(true);
+        _gameObject.SetActive(true);
 
         if (inputText.Length > 10)
         {
@@ -40,11 +36,6 @@ public class TextController : MonoBehaviour
     IEnumerator FadePanel()
     {
         yield return new WaitForSeconds(4f);
-        m_gameObject.SetActive(false);
-    }
-
-    public void CloseText()
-    {   
-        //gameObject.SetActive(false);
+        _gameObject.SetActive(false);
     }
 }
