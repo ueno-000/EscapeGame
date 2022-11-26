@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TextController : MonoBehaviour
 {
     public static TextController Instance { get; private set; }
-    [SerializeField] private GameObject _gameObject;
+    [SerializeField] private GameObject _textPrefabObject;
     [SerializeField] private string _text;
     public Text text_Object;
 
@@ -17,7 +17,7 @@ public class TextController : MonoBehaviour
     
     public void DisplayText(string inputText,bool isFade)
     {
-        _gameObject.SetActive(true);
+        _textPrefabObject.SetActive(true);
 
         if (inputText.Length > 10)
         {
@@ -36,6 +36,6 @@ public class TextController : MonoBehaviour
     IEnumerator FadePanel()
     {
         yield return new WaitForSeconds(4f);
-        _gameObject.SetActive(false);
+        _textPrefabObject.SetActive(false);
     }
 }
